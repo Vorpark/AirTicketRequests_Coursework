@@ -16,5 +16,15 @@ namespace AirTicketRequests_Coursework
         {
             InitializeComponent();
         }
+
+        private void AddTicket(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteTicket(object sender, EventArgs e)
+        {
+
+        }
     }
 }
