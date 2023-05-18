@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace AirTicketRequests_Coursework
 {
@@ -14,11 +12,11 @@ namespace AirTicketRequests_Coursework
             InitializeComponent();
         }
 
-        private void AddNewTicket(object sender, EventArgs e)
+        private void AddNewTicket(object sender, EventArgs e) //Добавляем новый тикет
         {
-            check = true;
-            string path = "Tickets.txt";
-            if (!int.TryParse(textBox1.Text, out int flightNumber) && textBox1.Text == "")
+            check = true; //Считывает проверки входных данных
+            string path = "Tickets.txt"; //Путь файла, сохраняется в папке программы
+            if (!int.TryParse(textBox1.Text, out int flightNumber) && textBox1.Text == "") //Проверки
             {
                 ErrorMessage("Номер рейса");
             }
@@ -31,38 +29,37 @@ namespace AirTicketRequests_Coursework
                 ErrorMessage("Место прибытия");
             }
 
-            if (check)
+            if (check) //При успешной проверке идет запись в файл
             {
-                AirTicket airTicket = new AirTicket(flightNumber, textBox2.Text, dateTimePicker1.Value.ToShortDateString(), textBox4.Text);
-                string ticket = $"{airTicket.FlightNumber}-{airTicket.PassengerName}-{airTicket.Date}-{airTicket.Destination}";
+                AirTicket airTicket = new AirTicket(flightNumber, textBox2.Text, dateTimePicker1.Value.ToShortDateString(), textBox4.Text); //Создание класса
 
-                using (StreamWriter writer = new StreamWriter(path, true))
+                using (StreamWriter writer = new StreamWriter(path, true)) //Запись в файл
                 {
-                    writer.WriteLineAsync(ticket);
+                    writer.WriteLineAsync($"{airTicket.FlightNumber}-{airTicket.PassengerName}-{airTicket.Date}-{airTicket.Destination}"); //Сама запись
                 }
-                ClearEmptyLines();
-                Close();
+                ClearEmpty(); //Очистка
+                Close(); //Закрытие формы при успехе
             }
         }
-        private void ClearEmptyLines()
+        private void ClearEmpty() //Удаляем пустые строки, могут образоваться из-за удаления из файла тикетов
         {
             int i;
             string path = "Tickets.txt";
-            string[] text = System.IO.File.ReadAllLines(path);
+            string[] text = System.IO.File.ReadAllLines(path); //Читаем весь файл
             StreamWriter File = System.IO.File.CreateText(path);
-            for (i = 0; i < text.Length; i++)
+            for (i = 0; i < text.Length; i++) //Удаляем пустые строки
             {
                 if (text[i] != "")
                 {
                     File.WriteLine(text[i]);
                 }
             }
-            File.Close();
+            File.Close();//Закрываем файл 
         }
-        private void ErrorMessage(string field)
+        private void ErrorMessage(string field) //Вывод ошибки
         {
             MessageBox.Show($"Поле \"{field}\" не может быть пустым!", "Ошибка!", MessageBoxButtons.OK);
-            check = false;
+            check = false; //Проверка провалена
         }
     }
 }
