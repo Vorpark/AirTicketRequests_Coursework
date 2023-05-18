@@ -45,7 +45,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -124,6 +124,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "Сортировка";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.FindFlightNumber);
             // 
             // button4
             // 
@@ -133,6 +134,7 @@
             this.button4.TabIndex = 6;
             this.button4.Text = "Сортировка";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.FindDate);
             // 
             // textBox1
             // 
