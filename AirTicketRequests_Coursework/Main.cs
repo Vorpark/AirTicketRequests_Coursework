@@ -82,7 +82,7 @@ namespace AirTicketRequests_Coursework
                 }
                 if (!find)
                 {
-                    
+                    ErrorMessage();
                 }
             }
         }
@@ -100,7 +100,7 @@ namespace AirTicketRequests_Coursework
                     string[] words = @string.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
                     if (words.Length > 0)
                     {
-                        if (words[3] == dateTimePicker1.Value.ToShortDateString())
+                        if (words[2] == dateTimePicker1.Value.ToShortDateString())
                         {
                             dataGridView.Rows.Add(words[0], words[1], words[2], words[3]);
                             find = true;
