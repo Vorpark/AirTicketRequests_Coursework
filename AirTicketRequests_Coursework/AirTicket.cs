@@ -4,11 +4,11 @@ namespace AirTicketRequests_Coursework
 {
     public class AirTicket
     {
-        public int FlightNumber { get; set; } //Номер рейса
+        public int FlightNumber { get; set; } //Номер рейса самолета
         public string PassengerName { get; set; } // ФИО пассажира
-        public string Date { get; set; } // Дата вылета
+        public string Date { get; set; } // Дата вылета самолета
         public string Destination { get; set; } // Место прибытия
-        public AirTicket(int flightNumber, string passengerName, string date, string destination) //Заносим в класс входные параметры
+        public AirTicket(int flightNumber, string passengerName, string date, string destination) //Входные параметры
         { 
             FlightNumber = flightNumber;
             PassengerName = passengerName;

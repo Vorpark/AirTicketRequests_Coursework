@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxFlightNumber = new System.Windows.Forms.TextBox();
+            this.textBoxPassengerName = new System.Windows.Forms.TextBox();
+            this.textBoxDestination = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBoxFlightNumber
             // 
-            this.textBox1.Location = new System.Drawing.Point(198, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(219, 20);
-            this.textBox1.TabIndex = 0;
+            this.textBoxFlightNumber.Location = new System.Drawing.Point(198, 12);
+            this.textBoxFlightNumber.Name = "textBoxFlightNumber";
+            this.textBoxFlightNumber.Size = new System.Drawing.Size(219, 20);
+            this.textBoxFlightNumber.TabIndex = 0;
             // 
-            // textBox2
+            // textBoxPassengerName
             // 
-            this.textBox2.Location = new System.Drawing.Point(198, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(219, 20);
-            this.textBox2.TabIndex = 1;
+            this.textBoxPassengerName.Location = new System.Drawing.Point(198, 38);
+            this.textBoxPassengerName.Name = "textBoxPassengerName";
+            this.textBoxPassengerName.Size = new System.Drawing.Size(219, 20);
+            this.textBoxPassengerName.TabIndex = 1;
             // 
-            // textBox4
+            // textBoxDestination
             // 
-            this.textBox4.Location = new System.Drawing.Point(198, 90);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(219, 20);
-            this.textBox4.TabIndex = 3;
+            this.textBoxDestination.Location = new System.Drawing.Point(198, 90);
+            this.textBoxDestination.Name = "textBoxDestination";
+            this.textBoxDestination.Size = new System.Drawing.Size(219, 20);
+            this.textBoxDestination.TabIndex = 3;
             // 
             // label1
             // 
@@ -87,12 +87,12 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Дата вылета:";
             // 
-            // dateTimePicker1
+            // dateTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(198, 64);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(219, 20);
-            this.dateTimePicker1.TabIndex = 7;
+            this.dateTimePicker.Location = new System.Drawing.Point(198, 64);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(219, 20);
+            this.dateTimePicker.TabIndex = 7;
             // 
             // label4
             // 
@@ -120,13 +120,13 @@
             this.ClientSize = new System.Drawing.Size(425, 260);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxDestination);
+            this.Controls.Add(this.textBoxPassengerName);
+            this.Controls.Add(this.textBoxFlightNumber);
             this.Name = "AddTicket";
             this.Text = "TicketForm";
             this.ResumeLayout(false);
@@ -136,13 +136,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxFlightNumber;
+        private System.Windows.Forms.TextBox textBoxPassengerName;
+        private System.Windows.Forms.TextBox textBoxDestination;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
     }

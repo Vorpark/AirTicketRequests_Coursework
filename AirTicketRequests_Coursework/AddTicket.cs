@@ -12,54 +12,54 @@ namespace AirTicketRequests_Coursework
             InitializeComponent();
         }
 
-        private void AddNewTicket(object sender, EventArgs e) //Добавляем новый тикет
+        private void AddNewTicket(object sender, EventArgs e)
         {
-            check = true; //Считывает проверки входных данных
-            string path = "Tickets.txt"; //Путь файла, сохраняется в папке программы
-            if (!int.TryParse(textBox1.Text, out int flightNumber) && textBox1.Text == "") //Проверки
+            check = true;
+            string path = "FlightTickets.txt";
+            if (textBoxFlightNumber.Text == "") 
             {
-                ErrorMessage("Номер рейса");
+                ShowErrorMessage("Номер рейса");
             }
-            if (textBox2.Text == "")
+            if (textBoxPassengerName.Text == "")
             {
-                ErrorMessage("Фамилия и инициалы пассажира");
+                ShowErrorMessage("Фамилия и инициалы пассажира");
             }
-            if (textBox4.Text == "")
+            if (textBoxDestination.Text == "")
             {
-                ErrorMessage("Место прибытия");
+                ShowErrorMessage("Место прибытия");
             }
 
-            if (check) //При успешной проверке идет запись в файл
+            if (check) 
             {
-                AirTicket airTicket = new AirTicket(flightNumber, textBox2.Text, dateTimePicker1.Value.ToShortDateString(), textBox4.Text); //Создание класса
+                AirTicket airTicket = new AirTicket(Int32.Parse(textBoxFlightNumber.Text), textBoxPassengerName.Text, dateTimePicker.Value.ToShortDateString(), textBoxDestination.Text); 
 
-                using (StreamWriter writer = new StreamWriter(path, true)) //Запись в файл
+                using (StreamWriter writer = new StreamWriter(path, true)) 
                 {
-                    writer.WriteLineAsync($"{airTicket.FlightNumber}-{airTicket.PassengerName}-{airTicket.Date}-{airTicket.Destination}"); //Сама запись
+                    writer.WriteLineAsync($"{airTicket.FlightNumber}-{airTicket.PassengerName}-{airTicket.Date}-{airTicket.Destination}"); 
                 }
-                ClearEmpty(); //Очистка
-                Close(); //Закрытие формы при успехе
+                ClearEmpty(); 
+                Close(); 
             }
         }
-        private void ClearEmpty() //Удаляем пустые строки, могут образоваться из-за удаления из файла тикетов
+        private void ClearEmpty() 
         {
             int i;
-            string path = "Tickets.txt";
-            string[] text = System.IO.File.ReadAllLines(path); //Читаем весь файл
+            string path = "FlightTickets.txt";
+            string[] text = System.IO.File.ReadAllLines(path); 
             StreamWriter File = System.IO.File.CreateText(path);
-            for (i = 0; i < text.Length; i++) //Удаляем пустые строки
+            for (i = 0; i < text.Length; i++) 
             {
                 if (text[i] != "")
                 {
                     File.WriteLine(text[i]);
                 }
             }
-            File.Close();//Закрываем файл 
+            File.Close();
         }
-        private void ErrorMessage(string field) //Вывод ошибки
+        private void ShowErrorMessage(string field) 
         {
             MessageBox.Show($"Поле \"{field}\" не может быть пустым!", "Ошибка!", MessageBoxButtons.OK);
-            check = false; //Проверка провалена
+            check = false; 
         }
     }
 }

@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.table = new System.Windows.Forms.DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button5 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.sortFlightNumber = new System.Windows.Forms.Button();
+            this.sortDate = new System.Windows.Forms.Button();
+            this.textBoxFlightNumber = new System.Windows.Forms.TextBox();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.clearFiltersButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView
+            // table
             // 
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dataGridView.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(793, 416);
-            this.dataGridView.TabIndex = 0;
+            this.table.Location = new System.Drawing.Point(12, 12);
+            this.table.Name = "table";
+            this.table.Size = new System.Drawing.Size(793, 416);
+            this.table.TabIndex = 0;
             // 
             // Column4
             // 
@@ -78,25 +78,25 @@
             this.Column3.HeaderText = "Место назначения";
             this.Column3.Name = "Column3";
             // 
-            // button1
+            // addButton
             // 
-            this.button1.Location = new System.Drawing.Point(12, 434);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(217, 51);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.AddTicket);
+            this.addButton.Location = new System.Drawing.Point(12, 434);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(217, 51);
+            this.addButton.TabIndex = 1;
+            this.addButton.Text = "Добавить";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.AddFlightTicket);
             // 
-            // button2
+            // deleteButton
             // 
-            this.button2.Location = new System.Drawing.Point(12, 491);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(217, 51);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Удалить";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.DeleteTicket);
+            this.deleteButton.Location = new System.Drawing.Point(12, 491);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(217, 51);
+            this.deleteButton.TabIndex = 2;
+            this.deleteButton.Text = "Удалить";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.DeleteFlightTicket);
             // 
             // label1
             // 
@@ -116,68 +116,70 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Сортировка по дате вылета:";
             // 
-            // button3
+            // sortFlightNumber
             // 
-            this.button3.Location = new System.Drawing.Point(255, 476);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(225, 66);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Сортировка";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.FindFlightNumber);
+            this.sortFlightNumber.Location = new System.Drawing.Point(255, 476);
+            this.sortFlightNumber.Name = "sortFlightNumber";
+            this.sortFlightNumber.Size = new System.Drawing.Size(225, 66);
+            this.sortFlightNumber.TabIndex = 5;
+            this.sortFlightNumber.Text = "Сортировка";
+            this.sortFlightNumber.UseVisualStyleBackColor = true;
+            this.sortFlightNumber.Click += new System.EventHandler(this.SortFlightNumber);
             // 
-            // button4
+            // sortDate
             // 
-            this.button4.Location = new System.Drawing.Point(511, 476);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(225, 66);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Сортировка";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.FindDate);
+            this.sortDate.Location = new System.Drawing.Point(511, 476);
+            this.sortDate.Name = "sortDate";
+            this.sortDate.Size = new System.Drawing.Size(225, 66);
+            this.sortDate.TabIndex = 6;
+            this.sortDate.Text = "Сортировка";
+            this.sortDate.UseVisualStyleBackColor = true;
+            this.sortDate.Click += new System.EventHandler(this.SortDate);
             // 
-            // textBox1
+            // textBoxFlightNumber
             // 
-            this.textBox1.Location = new System.Drawing.Point(255, 450);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(225, 20);
-            this.textBox1.TabIndex = 7;
+            this.textBoxFlightNumber.Location = new System.Drawing.Point(255, 450);
+            this.textBoxFlightNumber.Name = "textBoxFlightNumber";
+            this.textBoxFlightNumber.Size = new System.Drawing.Size(225, 20);
+            this.textBoxFlightNumber.TabIndex = 7;
             // 
-            // dateTimePicker1
+            // dateTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(511, 450);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(225, 20);
-            this.dateTimePicker1.TabIndex = 8;
+            this.dateTimePicker.Location = new System.Drawing.Point(511, 450);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(225, 20);
+            this.dateTimePicker.TabIndex = 8;
             // 
-            // button5
+            // clearFiltersButton
             // 
-            this.button5.Location = new System.Drawing.Point(742, 476);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(61, 66);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "Очистка";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.ClearDataGridView);
+            this.clearFiltersButton.Location = new System.Drawing.Point(742, 476);
+            this.clearFiltersButton.Name = "clearFiltersButton";
+            this.clearFiltersButton.Size = new System.Drawing.Size(61, 66);
+            this.clearFiltersButton.TabIndex = 9;
+            this.clearFiltersButton.Text = "Очистка";
+            this.clearFiltersButton.UseVisualStyleBackColor = true;
+            this.clearFiltersButton.Click += new System.EventHandler(this.ClearTable);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 550);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.clearFiltersButton);
+            this.Controls.Add(this.dateTimePicker);
+            this.Controls.Add(this.textBoxFlightNumber);
+            this.Controls.Add(this.sortDate);
+            this.Controls.Add(this.sortFlightNumber);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.table);
+            this.MaximumSize = new System.Drawing.Size(831, 589);
+            this.MinimumSize = new System.Drawing.Size(831, 589);
             this.Name = "Main";
             this.Text = "Main";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,20 +187,20 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView table;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button sortFlightNumber;
+        private System.Windows.Forms.Button sortDate;
+        private System.Windows.Forms.TextBox textBoxFlightNumber;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.Button clearFiltersButton;
     }
 }
 
